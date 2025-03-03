@@ -1,8 +1,8 @@
 # EXPERIMENT-01-INTERFACTING-DIGITAL-OUTPUT-WITH-EDGE-DEVICE---(RASPBERRYPI-PICO)
-### NAME 
-### DEPARTMENT 
-### ROLL NO 
-### DATE OF EXPERIMENT 
+### NAME : Sivaramakrishnan B
+### DEPARTMENT : CSE(IOT)
+### ROLL NO : 212222110044
+### DATE OF EXPERIMENT :24-02-2025
 
 ### AIM
 To interface a digital output device (LED) with the Raspberry Pi Pico and control it using MicroPython.
@@ -39,27 +39,73 @@ Connect the anode (longer leg) of the LED to GP15 via a 330Ω resistor.
 Connect the cathode (shorter leg) of the LED to GND (ground).
 
 
-## PROGRAM (MicroPython)
+## PROGRAM (MicroPython):
+#### 1A
 ```
+from machine import Pin
+from utime import sleep
+
+print("Hello, Pi Pico!")
+
+led = Pin(0, Pin.OUT)
+while True:
+    led.toggle()
+    sleep(0.5)
+```
+#### 1B
+```
+from machine import Pin
+from utime import sleep
+led1 = Pin(0,  Pin.OUT)
+led2 = Pin(1,  Pin.OUT)
+led = Pin(2, Pin.OUT)
+while True:
+    led1.toggle()
+    sleep(0.5) # Wait for USB to become ready
+    led2.toggle()
+    sleep(0.5)
+    led.toggle()
+    sleep(0.5)
+```
+#### 1C
+```
+1-c
+from machine import Pin
+from utime import sleep
+led1 = Pin(0,  Pin.OUT)
+led2 = Pin(1,  Pin.OUT)
+led3 = Pin(2, Pin.OUT)
+buzz = Pin(3,  Pin.OUT)
+while True:
+    led1.toggle()
+    sleep(0.5) # Wait for USB to become ready
+    buzz.toggle()
+    sleep(0.5)
+    led2.toggle()
+    sleep(0.5)
+    buzz.toggle()
+    sleep(0.5)
+    led3.toggle()
+    sleep(0.5)
+    buzz.toggle()
+    sleep(0.5)
 
 
- 
-
-
-
- 
 ````
 
 ### OUPUT  
 
+# FIGURE -01 
 
-# FIGURE -02 ADD TITILE HERE 
+![output1a](https://github.com/user-attachments/assets/f9959ab6-f9ef-4a8b-8a65-3ff678c5f14c)
 
-#  FIGURE -03 ADD TITILE HERE 
+#  FIGURE -02
 
-# FIGURE -04 ADD TITLE HERE 
+![output1b](https://github.com/user-attachments/assets/4efa7266-1914-4288-9ec4-e9c818cde6cd)
 
+# FIGURE -03
 
- 
+![output1c](https://github.com/user-attachments/assets/ab346ff9-ef90-451a-8475-206f820ec043)
+
 ## RESULTS
 The LED connected to the Raspberry Pi Pico successfully turns ON and OFF at  user defined time  confirming the proper interfacing of a digital output.
